@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Space Launches</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/bootstrap-theme.min.css" />
+		<style>
+			.container {
+				overflow-x: auto;
+			}
+			canvas {
+				height: 400px;
+				width: 100%;
+			}
+			footer {
+				margin-bottom: 25px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<h1>
+				SpaceX Launches
+				<a class="btn btn-primary pull-right" download="SpaceX-Falcon9-Launches.png" id="download-btn"><i class="glyphicon glyphicon-download"></i> Download</a>
+			</h1>
+		</div>
+		<div class="container">
+			<canvas></canvas>
+		</div>
+		<div class="container">
+			<em class="help-block">Half size preview</em>
+			<h2>Customise</h2>
+			<form class="form-horizontal" role="form">
+				<div class="form-group">
+					<div class="col-sm-3">
+						<label for="width-range" class="control-label">Width</label>
+						<span class="help-block">Width of the full size image</span>
+					</div>
+					<div class="col-sm-7">
+						<input type="range" id="width-range" value="2400" min="800" max="3200">
+					</div>
+					<div class="col-sm-2">
+						<input type="text" class="form-control" id="width-value" value="2400">
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-3">
+						<label for="height-range" class="control-label">Height</label>
+						<span class="help-block">Height of the full size image</span>
+					</div>
+					<div class="col-sm-7">
+						<input type="range" id="height-range" value="800" min="600" max="2400">
+					</div>
+					<div class="col-sm-2">
+						<input type="text" class="form-control" id="height-value" value="800">
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-3">
+						<label for="start-date" class="control-label">Date Range</label>
+						<span class="help-block">What is the earliest and latest date you want to show</span>
+					</div>
+					<label for="start-date" class="control-label col-sm-1">From:</label>
+					<div class="col-sm-2">
+						<input type="date" class="form-control" id="start-date">
+					</div>
+					<label for="end-date" class="control-label col-sm-1">To:</label>
+					<div class="col-sm-2">
+						<input type="date" class="form-control" id="end-date">
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-3">
+						<label for="future-check" class="control-label">Future Launches</label>
+						<span class="help-block">Show ghosts of planned launches</span>
+					</div>
+					<div class="col-sm-9">
+						<button class="btn btn-primary active" id="future-check" data-toggle="button">Future Launches</button>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-3">
+						<label for="now-check" class="control-label">Now Marker</label>
+						<span class="help-block">Show a small marker to indicate today's date</span>
+					</div>
+					<div class="col-sm-9">
+						<button class="btn btn-primary active" id="now-check" data-toggle="button">Now Marker</button>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-3">
+						<label for="orbit-check" class="control-label">Orbit Indicators</label>
+						<span class="help-block">Show a rough indication of orbit heights</span>
+					</div>
+					<div class="col-sm-9">
+						<button class="btn btn-primary active" id="orbit-check" data-toggle="button">Show Orbits</button>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-3">
+						<label for="scale-select" class="control-label">Scale</label>
+						<span class="help-block">Show certain objects for rough scale</span>
+					</div>
+					<div class="col-sm-2">
+						<select class="form-control" id="scale-select">
+							<option value="">None</option>
+							<option value="human">Human</option>
+							<option value="t-rex">T. rex</option>
+							<option value="bananas">100 Bananas</option>
+							<option value="statueofliberty">Statue of Liberty</option>
+						</select>
+					</div>
+					<div class="col-sm-2">
+						<div class="btn-group" data-toggle="buttons">
+							<label for="scale-layer-front-radio" class="btn btn-primary active">
+								In Front
+								<input type="radio" name="scale-layer" value="front" id="scale-layer-front-radio" checked />
+							</label>
+							<label for="scale-layer-back-radio" class="btn btn-primary">
+								Behind
+								<input type="radio" name="scale-layer" value="back" id="scale-layer-back-radio" />
+							</label>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-3">
+						<label for="sky-select" class="control-label">Sky</label>
+						<span class="help-block">Colour of the sky in the background</span>
+					</div>
+					<div class="col-sm-2">
+						<select class="form-control" id="sky-select">
+							<option value="midday">Midday</option>
+							<option value="day">Day</option>
+							<option value="twilight">Twilight</option>
+							<option value="night">Night</option>
+						</select>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="container">
+			<footer class="text-muted small">Source available at <a href="https://github.com/IJMacD/spacex-launches">github.com/IJMacD/spacex-launches</a>.</footer>
+		<div>
+		<script src="js/jquery-2.1.1.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/promise-0.1.1.min.js"></script>
+		<script src="js/spacex.js"></script>
+	</body>
+</html>
