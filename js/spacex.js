@@ -70,7 +70,7 @@ $(function(){
 		/*
 		 * Promise for loading of launch manifest
 		 */
-		_launches = Promise.resolve($.get("launches.json")),
+		_launches = Promise.resolve($.get("launches-spacex.json")),
 
 		/*
 		 * Cache of drawn objects for tooltip hover
