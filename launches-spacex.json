@@ -1,14 +1,7 @@
 [
 	{
-		"date": "2006-03-24T22:30:00Z",
-		"image": "falcon1.png",
-		"payloads": [
-			{
-				"name": "FalconSAT-2",
-				"orbit": "fail",
-				"image": "failure.png"
-			}
-		]
+		"date": "2013-01-15T20:24:59Z",
+		"image": "falcon1.png"
 	},
 	{
 		"date": "2007-03-21T01:10:00Z",
